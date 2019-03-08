@@ -1,14 +1,15 @@
-'use strict'
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+'use strict';
+const path = require('path');
+const utils = require('./utils');
+const config = require('../config');
+const vueLoaderConfig = require('./vue-loader.conf');
+
+// The path to the CesiumJS source codeaa
+const cesiumSource = "../node_modules/cesium/Source";
 
 function resolve(dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '..', dir);
 }
-
-
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -18,17 +19,31 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production' ?
-      config.build.assetsPublicPath : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
+
+    // Needed to compile multiline strings in Cesium ***** CesiumJS
+    sourcePrefix: ''
+  },
+  amd: {
+    // Enable webpack-friendly use of require in Cesium  ***** CesiumJS
+    toUrlUndefined: true
+  },
+  node: {
+    // Resolve node module use of fs  ***** CesiumJS
+    fs: 'empty'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      // CesiumJS module name  ***** CesiumJS
+      cesium: path.resolve(__dirname, cesiumSource)
     }
   },
   module: {
+    //解决Critical dependency: require function is used in a way in which dependencies cannot be statically extracted的问题
+    unknownContextCritical: false,
     rules: [{
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -62,10 +77,11 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }, {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
       },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      }
     ]
   },
   node: {
@@ -80,4 +96,4 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   }
-}
+};
