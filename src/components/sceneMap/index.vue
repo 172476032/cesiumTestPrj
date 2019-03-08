@@ -12,7 +12,9 @@ import flyManage from "@/components/flyManager/flyManager.vue";
 
 export default {
   data() {
-    return {};
+    return {
+      Viewer: null
+    };
   },
   components: { flyManage },
   mounted() {
@@ -23,8 +25,9 @@ export default {
     initSceneMap() {
       console.log("场景初始化");
       console.log("180转弧度: ", Cesium.Math.toRadians(180));
+      this.Viewer = new Cesium.Viewer("sceneMap");
       window.Cesium = Cesium;
-      window.Viewer = new Cesium.Viewer("sceneMap");
+      window.Viewer = this.Viewer;
     }
   },
   destroyed() {}
