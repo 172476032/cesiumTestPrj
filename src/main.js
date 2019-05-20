@@ -3,8 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import "iview/dist/styles/iview.css";
+import iView from "iview";
 require('cesium/Widgets/widgets.css');
 
+Vue.use(iView)
 
 Vue.config.productionTip = false
 
