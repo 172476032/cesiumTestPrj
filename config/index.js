@@ -10,17 +10,35 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      //杭州3dtiles代理服务
+      '/3dtiles': {
+        target: 'http://106.14.203.229:8088/',
+        pathRewrite: {
+          '^/3dtiles': '/3dtiles'
+        },
+        changeOrigin: true,
+        cookiePathRewrite: "/"
+      },
+      '/map': {
+        target: 'http://10.6.172.178:6080',
+        pathRewrite: {
+          '^/map': '/arcgis'
+        },
+        changeOrigin: true,
+        cookiePathRewrite: "/"
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 8089, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */

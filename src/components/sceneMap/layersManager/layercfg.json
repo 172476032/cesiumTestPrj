@@ -1,0 +1,51 @@
+[{
+  "title": "基础数据",
+  "children": [{
+      "title": "金沙江流域",
+      "id": 1,
+      "children": [{
+          "title": "水电站",
+          "id": 1,
+          "url": "http://10.6.172.178:6080/arcgis/rest/services/kingsa/WaterStation_JSJ/MapServer/WMTS",
+          "layername": "WaterStation_JSJ"
+        },
+        {
+          "title": "水库",
+          "id": 2,
+          "url": "http://10.6.172.178:6080/arcgis/rest/services/kingsa/reservoir_JSJ/MapServer/WMTS",
+          "layername": "reservoir_JSJ"
+        },
+        {
+          "title": "河流",
+          "id": 3,
+          "url": "http://10.6.172.178:6080/arcgis/rest/services/kingsa/JSJriver/MapServer/WMTS",
+          "layername": "JSJriver"
+        }
+      ]
+    },
+    {
+      "title": "长江流域",
+      "id": 2,
+      "children": [{
+          "title": "水文站",
+          "id": 4,
+          "url": "http://10.6.172.178:6080/arcgis/rest/services/kingsa/HydroStation_new/MapServer/WMTS",
+          "layername": "HydroStation_new"
+        },
+        {
+          "title": "长江流域水系",
+          "id": 5,
+          "url": "http://10.6.172.178:6080/arcgis/rest/services/kingsa/changjiang_river/MapServer/WMTS",
+          "layername": "changjiang_river"
+        },
+        {
+          "title": "水资源分区",
+          "id": 6,
+          "url": "http://10.6.172.178:6080/arcgis/rest/services/kingsa/basin_changjiang/MapServer/WMTS",
+          "layername": "basin_changjiang"
+
+        }
+      ]
+    }
+  ]
+}]

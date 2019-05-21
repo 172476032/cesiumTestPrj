@@ -1,0 +1,51 @@
+@keyframes drop-card-enter {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes drop-card-leave {
+  0% {
+    transform: translateY(0);
+  }
+
+  80% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.dropCard-enter-active {
+  animation: 0.4s drop-card-enter ease;
+}
+
+.dropCard-leave-active {
+  animation: 0.4s drop-card-leave ease;
+}
+
+@keyframes drop-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dropFade-enter-active {
+  animation: 0.4s drop-fade;
+}
+
+.dropFade-leave-active {
+  animation: 0.4s drop-fade reverse ease-in-out;
+}
