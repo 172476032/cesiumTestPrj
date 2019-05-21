@@ -3,14 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-<<<<<<< HEAD
 import "./css/map.css"
 import iView from "iview";
 import "iview/dist/styles/iview.css";
-=======
-import "iview/dist/styles/iview.css";
-import iView from "iview";
->>>>>>> ec71936627fb25fd9795f6346605e0429e84043b
 require('cesium/Widgets/widgets.css');
 import store from "./store"
 
